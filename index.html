@@ -1,0 +1,433 @@
+<!DOCTYPE html>
+<html lang="zh-HK">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SEED Cloud Computing Level 2 (QF2) | 研發進度與交付看板</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Noto+Sans+TC:wght@400;500;700&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #f8fafc;
+      --card-bg: #ffffff;
+      --card-border: #e2e8f0;
+      --text-main: #0f172a;
+      --text-secondary: #475569;
+      --text-muted: #64748b;
+      --primary: #2563eb;
+      --primary-light: #eff6ff;
+      --primary-border: #bfdbfe;
+      --accent-green: #059669;
+      --accent-green-bg: #ecfdf5;
+      --accent-green-border: #a7f3d0;
+      --accent-yellow: #d97706;
+      --accent-yellow-bg: #fffbeb;
+      --accent-yellow-border: #fde68a;
+      --accent-red: #dc2626;
+      --accent-red-bg: #fef2f2;
+      --accent-red-border: #fecaca;
+      --code-bg: #f1f5f9;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      background-color: var(--bg);
+      color: var(--text-main);
+      font-family: 'Plus Jakarta Sans', 'Noto Sans TC', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      line-height: 1.6;
+      background-image: 
+        radial-gradient(at 0% 0%, rgba(37, 99, 235, 0.05) 0px, transparent 50%),
+        radial-gradient(at 100% 100%, rgba(5, 150, 105, 0.04) 0px, transparent 50%);
+      min-height: 100vh;
+      padding: 40px 20px 80px;
+    }
+    .container { max-width: 1200px; margin: 0 auto; }
+    
+    /* Header Card */
+    header {
+      background: var(--card-bg);
+      border: 1px solid var(--card-border);
+      border-radius: 20px;
+      padding: 36px 44px;
+      margin-bottom: 28px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 24px;
+      box-shadow: 0 4px 20px -2px rgba(15, 23, 42, 0.06);
+    }
+    .badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      background: var(--primary-light);
+      border: 1px solid var(--primary-border);
+      color: var(--primary);
+      padding: 4px 14px;
+      border-radius: 9999px;
+      font-size: 13px;
+      font-weight: 700;
+      margin-bottom: 10px;
+    }
+    h1 { font-size: 28px; font-weight: 800; letter-spacing: -0.5px; color: var(--text-main); }
+    .subtitle { color: var(--text-secondary); font-size: 15px; margin-top: 6px; }
+    .header-stats {
+      display: flex;
+      gap: 28px;
+    }
+    .stat-box {
+      text-align: right;
+      border-left: 2px solid var(--card-border);
+      padding-left: 24px;
+    }
+    .stat-val { font-size: 28px; font-weight: 800; color: var(--primary); }
+    .stat-lbl { font-size: 12px; color: var(--text-muted); text-transform: uppercase; font-weight: 600; letter-spacing: 0.5px; }
+
+    /* Progress bar */
+    .progress-container {
+      background: var(--card-bg);
+      border: 1px solid var(--card-border);
+      border-radius: 16px;
+      padding: 24px 36px;
+      margin-bottom: 28px;
+      box-shadow: 0 4px 16px -2px rgba(15, 23, 42, 0.04);
+    }
+    .progress-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 12px;
+      font-weight: 700;
+      font-size: 15px;
+    }
+    .progress-track {
+      background: #e2e8f0;
+      height: 12px;
+      border-radius: 999px;
+      overflow: hidden;
+      position: relative;
+    }
+    .progress-fill {
+      height: 100%;
+      background: linear-gradient(90deg, #2563eb, #059669);
+      width: 10%;
+      border-radius: 999px;
+      transition: width 0.8s ease;
+    }
+
+    /* Grid Layout */
+    .grid-2 { display: grid; grid-template-columns: 2fr 1fr; gap: 28px; }
+    @media (max-width: 900px) { .grid-2 { grid-template-columns: 1fr; } }
+
+    .card {
+      background: var(--card-bg);
+      border: 1px solid var(--card-border);
+      border-radius: 18px;
+      padding: 30px;
+      box-shadow: 0 4px 20px -2px rgba(15, 23, 42, 0.05);
+      margin-bottom: 24px;
+    }
+    .card-title {
+      font-size: 18px;
+      font-weight: 700;
+      margin-bottom: 20px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      color: var(--text-main);
+    }
+
+    /* Table */
+    .deck-table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 14px;
+    }
+    .deck-table th {
+      text-align: left;
+      padding: 14px 16px;
+      background: #f8fafc;
+      color: var(--text-muted);
+      border-bottom: 1px solid var(--card-border);
+      font-weight: 700;
+      font-size: 13px;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+    .deck-table td {
+      padding: 16px;
+      border-bottom: 1px solid #f1f5f9;
+      vertical-align: middle;
+      color: var(--text-secondary);
+    }
+    .deck-table tr:hover { background: #f8fafc; }
+    .status-pill {
+      display: inline-block;
+      padding: 4px 12px;
+      border-radius: 999px;
+      font-size: 12px;
+      font-weight: 700;
+    }
+    .status-wip { background: var(--accent-yellow-bg); color: var(--accent-yellow); border: 1px solid var(--accent-yellow-border); }
+    .status-done { background: var(--accent-green-bg); color: var(--accent-green); border: 1px solid var(--accent-green-border); }
+    .status-todo { background: #f1f5f9; color: var(--text-muted); border: 1px solid #e2e8f0; }
+
+    /* Timeline Log */
+    .timeline { position: relative; padding-left: 24px; border-left: 2px solid #e2e8f0; margin-left: 8px; }
+    .timeline-item { position: relative; margin-bottom: 26px; }
+    .timeline-dot {
+      position: absolute;
+      left: -31px;
+      top: 4px;
+      width: 12px;
+      height: 12px;
+      border-radius: 50%;
+      background: var(--primary);
+      box-shadow: 0 0 0 4px var(--primary-light);
+    }
+    .timeline-date { font-size: 12px; font-weight: 700; color: var(--primary); font-family: 'JetBrains Mono', monospace; }
+    .timeline-title { font-size: 15px; font-weight: 700; margin: 4px 0 6px; color: var(--text-main); }
+    .timeline-desc { font-size: 13px; color: var(--text-secondary); line-height: 1.6; }
+
+    /* Checklist */
+    .check-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 12px;
+      margin-bottom: 14px;
+      font-size: 13px;
+      color: var(--text-secondary);
+    }
+    .check-box {
+      width: 20px;
+      height: 20px;
+      border-radius: 6px;
+      border: 1px solid var(--accent-green-border);
+      background: var(--accent-green-bg);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--accent-green);
+      font-size: 12px;
+      font-weight: 700;
+      flex-shrink: 0;
+      margin-top: 2px;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 6px 12px;
+      border-radius: 8px;
+      background: var(--primary);
+      color: #fff;
+      text-decoration: none;
+      font-size: 12px;
+      font-weight: 600;
+      transition: all 0.2s;
+    }
+    .btn:hover { background: #1d4ed8; transform: translateY(-1px); }
+    .btn-outline {
+      background: #fff;
+      color: var(--primary);
+      border: 1px solid var(--primary-border);
+    }
+    .btn-outline:hover { background: var(--primary-light); }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+    <!-- Header -->
+    <header>
+      <div>
+        <div class="badge">🚀 HKU SPACE QF2 認證課程重構項目</div>
+        <h1>SEED Cloud Computing Level 2 研發看板</h1>
+        <div class="subtitle">負責人：Margot (周菁) | 學術指導：Wanda | 交付週期：10/13 ~ 11/12 (30天)</div>
+      </div>
+      <div class="header-stats">
+        <div class="stat-box">
+          <div class="stat-val">10 門</div>
+          <div class="stat-lbl">標準課件總數</div>
+        </div>
+        <div class="stat-box">
+          <div class="stat-val">14 / 14</div>
+          <div class="stat-lbl">QF2 考點覆蓋</div>
+        </div>
+        <div class="stat-box">
+          <div class="stat-val">1 / 10</div>
+          <div class="stat-lbl">當前樣板進度</div>
+        </div>
+      </div>
+    </header>
+
+    <!-- Progress -->
+    <div class="progress-container">
+      <div class="progress-header">
+        <span>全套重構總體進度 (Overall Completion)</span>
+        <span style="color: var(--accent-green);">10% (首門樣板線衝刺中)</span>
+      </div>
+      <div class="progress-track">
+        <div class="progress-fill"></div>
+      </div>
+    </div>
+
+    <!-- Main Content -->
+    <div class="grid-2">
+      <!-- Left Column: Curriculum Tracker -->
+      <div>
+        <div class="card">
+          <div class="card-title">📚 10 門課重構與交付清單 (Curriculum Delivery Matrix)</div>
+          <table class="deck-table">
+            <thead>
+              <tr>
+                <th>課號</th>
+                <th>模塊</th>
+                <th>課程名稱 (中/英)</th>
+                <th>核心比喻 / 故事線</th>
+                <th>實操 Lab</th>
+                <th>交付資產</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr style="background: rgba(37, 99, 235, 0.03);">
+                <td><strong>Deck 01</strong></td>
+                <td>Sec 1</td>
+                <td><strong style="color:var(--text-main)">雲服務類別</strong><br><small style="color:var(--text-muted)">Cloud Service Categories</small></td>
+                <td>屋頂水箱 vs 城市自來水<br>自製披薩 vs 餐廳外賣</td>
+                <td>Ubuntu CLI 基礎</td>
+                <td>
+                  <span class="status-pill status-wip">🟡 樣板房製作中</span>
+                </td>
+              </tr>
+              <tr>
+                <td><strong>Deck 02</strong></td>
+                <td>Sec 1</td>
+                <td>現代軟件組件與雲資源<br><small style="color:var(--text-muted)">Software Stack & Resources</small></td>
+                <td>積木大廈、App 人體器官論</td>
+                <td>Linux 檔案與目錄樹</td>
+                <td><span class="status-pill status-todo">⚪ 待啟動</span></td>
+              </tr>
+              <tr>
+                <td><strong>Deck 03</strong></td>
+                <td>Sec 2</td>
+                <td>彈性算力與高可用部署<br><small style="color:var(--text-muted)">Elastic Compute & HA</small></td>
+                <td>搶演唱會門票容災、雞蛋籃子</td>
+                <td>進程監控 top/kill</td>
+                <td><span class="status-pill status-todo">⚪ 待啟動</span></td>
+              </tr>
+              <tr>
+                <td><strong>Deck 04</strong></td>
+                <td>Sec 3</td>
+                <td>網絡啟蒙：手機連網第一站<br><small style="color:var(--text-muted)">Network Journey 1: Access</small></td>
+                <td>【西遊1】iPhone 連入 WiFi 與 MAC 身份</td>
+                <td>ifconfig 網卡探索</td>
+                <td><span class="status-pill status-todo">⚪ 待啟動</span></td>
+              </tr>
+              <tr>
+                <td><strong>Deck 05</strong></td>
+                <td>Sec 3</td>
+                <td>數據打包：跨越路由的信使<br><small style="color:var(--text-muted)">Network Journey 2: Routing</small></td>
+                <td>【西遊2】打包快遞與跨海大橋</td>
+                <td>ping/traceroute 跳躍</td>
+                <td><span class="status-pill status-todo">⚪ 待啟動</span></td>
+              </tr>
+              <tr>
+                <td><strong>Deck 06</strong></td>
+                <td>Sec 3</td>
+                <td>雲上網絡與隔離：VPC 建造師<br><small style="color:var(--text-muted)">Network Journey 3: VPC</small></td>
+                <td>【西遊3】雲端帶圍牆的獨棟莊園</td>
+                <td>VPC 子網劃分實操</td>
+                <td><span class="status-pill status-todo">⚪ 待啟动</span></td>
+              </tr>
+              <tr>
+                <td><strong>Deck 07</strong></td>
+                <td>Sec 3</td>
+                <td>海量流量引路人：SLB 與網關<br><small style="color:var(--text-muted)">Network Journey 4: SLB</small></td>
+                <td>【西遊4】大廈安保與大堂分流閘機</td>
+                <td>SLB 輪詢訪問測試</td>
+                <td><span class="status-pill status-todo">⚪ 待啟動</span></td>
+              </tr>
+              <tr>
+                <td><strong>Deck 08</strong></td>
+                <td>Sec 3</td>
+                <td>極速邊緣：CDN 與全球加速<br><small style="color:var(--text-muted)">Network Journey 5: CDN</small></td>
+                <td>【西遊5】樓下 7-Eleven 前置快取倉</td>
+                <td>網絡延遲測試對比</td>
+                <td><span class="status-pill status-todo">⚪ 待啟動</span></td>
+              </tr>
+              <tr>
+                <td><strong>Deck 09</strong></td>
+                <td>Sec 4</td>
+                <td>三大存儲類別深度剖析<br><small style="color:var(--text-muted)">Storage Classes: Block/File/Object</small></td>
+                <td>隨身硬盤 vs 共享網盤 vs 貨運倉庫</td>
+                <td>Linux 磁盤掛載</td>
+                <td><span class="status-pill status-todo">⚪ 待啟動</span></td>
+              </tr>
+              <tr>
+                <td><strong>Deck 10</strong></td>
+                <td>Sec 4</td>
+                <td>對象存儲 (OSS) 與課程大總結<br><small style="color:var(--text-muted)">Object Storage & Capstone</small></td>
+                <td>香港學生專屬社交 App 雲架構設計</td>
+                <td>Bucket 網頁資源部署</td>
+                <td><span class="status-pill status-todo">⚪ 待啟動</span></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <!-- Right Column: Daily Log & Checklist -->
+      <div>
+        <!-- Daily Work Log -->
+        <div class="card">
+          <div class="card-title">📝 研發工作日誌 (Daily Log)</div>
+          <div class="timeline">
+            <div class="timeline-item">
+              <div class="timeline-dot"></div>
+              <div class="timeline-date">2026.10.13 (今日)</div>
+              <div class="timeline-title">項目架構梳理、素材歸檔與樣板房啟動</div>
+              <div class="timeline-desc">
+                • 深入通讀 Wanda 核心指導材料（docx + 57頁網絡原型 + QF2 規格書）。<br>
+                • 徹底排查原版 10 門課與 7 個 Lab 的斷層問題，制定補全策略。<br>
+                • 搭建研發即時透明看板與 10 門課拓撲映射。<br>
+                • 啟動 Deck 01（雲服務類別）45 頁生動教案劇本與動感 K-Means 版式設計。
+              </div>
+            </div>
+            <div class="timeline-item">
+              <div class="timeline-dot" style="background:#cbd5e1; box-shadow:none;"></div>
+              <div class="timeline-date">2026.10.14 (明天規劃)</div>
+              <div class="timeline-title">Deck 01 首發樣板線交付</div>
+              <div class="timeline-desc">
+                • 生成鮮艷動感版式 PPTX 及高清 PDF。<br>
+                • 提交 Wanda 審閱，固化色盤、插圖與 Lab 排版標準。
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- QF2 Checklist -->
+        <div class="card">
+          <div class="card-title">✅ QF2 官方 14 大考點合規檢查</div>
+          <div class="check-item"><div class="check-box">✓</div><span>場所資源 (On-Premises) [Deck 01]</span></div>
+          <div class="check-item"><div class="check-box">✓</div><span>雲資源 (Cloud Resources) [Deck 01]</span></div>
+          <div class="check-item"><div class="check-box">✓</div><span>軟件組件和服務 (Software Stack) [Deck 02]</span></div>
+          <div class="check-item"><div class="check-box">✓</div><span>雲服務類別 (IaaS/PaaS/SaaS) [Deck 01]</span></div>
+          <div class="check-item"><div class="check-box">✓</div><span>區域和區塊 (Regions & AZ) [Deck 03]</span></div>
+          <div class="check-item"><div class="check-box">✓</div><span>裸機硬件 (Bare Metal) [Deck 03]</span></div>
+          <div class="check-item"><div class="check-box">✓</div><span>網絡基礎 (IP, MAC, Subnet) [Deck 04]</span></div>
+          <div class="check-item"><div class="check-box">✓</div><span>雲網絡與 VPC [Deck 06]</span></div>
+          <div class="check-item"><div class="check-box">✓</div><span>服務器負載平衡器 (SLB) [Deck 07]</span></div>
+          <div class="check-item"><div class="check-box">✓</div><span>網關 (Gateways) [Deck 07]</span></div>
+          <div class="check-item"><div class="check-box">✓</div><span>內容分發網絡 (CDN) [Deck 08]</span></div>
+          <div class="check-item"><div class="check-box">✓</div><span>存儲器類別 (Block/File/Object) [Deck 09]</span></div>
+          <div class="check-item"><div class="check-box">✓</div><span>對象儲存服務 (OSS) [Deck 10]</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</body>
+</html>
