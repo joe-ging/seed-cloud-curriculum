@@ -285,19 +285,12 @@
               <tr>
                 <th>課號</th>
                 <th>模塊</th>
-                <th>課程名稱 (中/英)</th>
-                <th>核心比喻 / 故事線</th>
-                <th>實操 Lab</th>
-                <th>交付資產</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr style="background: rgba(37, 99, 235, 0.03);">
+                <th>�              <tr style="background: rgba(37, 99, 235, 0.03);">
                 <td><strong>Deck 01</strong></td>
                 <td>Sec 1</td>
                 <td><strong style="color:var(--text-main)">雲服務類別</strong><br><small style="color:var(--text-muted)">Cloud Service Categories</small></td>
                 <td>屋頂水箱 vs 城市自來水<br>自製披薩 vs 餐廳外賣</td>
-                <td><strong>Lab 01 實操</strong><br><small style="color:var(--text-muted)">Linux 安裝與 CLI 初體驗 (uname/whoami)</small></td>
+                <td><strong>Lab 01 實操</strong><br><small style="color:var(--text-muted)">安裝及設定 Linux Server (Ubuntu 界面與 Terminal CLI)</small></td>
                 <td>
                   <span class="status-pill status-wip">🟡 樣板房製作中</span>
                 </td>
@@ -307,59 +300,73 @@
                 <td>Sec 1</td>
                 <td>現代軟件組件與雲資源<br><small style="color:var(--text-muted)">Software Stack & Resources</small></td>
                 <td>積木大廈、App 人體器官論</td>
-                <td><strong>Lab 02 & 03 實操</strong><br><small style="color:var(--text-muted)">apt 安裝 Nginx Web 伺服器並修改首頁</small></td>
+                <td><strong>Lab 02 實操</strong><br><small style="color:var(--text-muted)">Linux 系統管理 (hostname / ifconfig / man / uptime)</small></td>
                 <td><span class="status-pill status-todo">⚪ 待啟動</span></td>
               </tr>
               <tr>
                 <td><strong>Deck 03</strong></td>
-                <td>Sec 2</td>
-                <td>彈性算力與高可用部署<br><small style="color:var(--text-muted)">Elastic Compute & HA</small></td>
-                <td>搶演唱會門票容災、雞蛋籃子</td>
-                <td><strong>Lab 04 實操</strong><br><small style="color:var(--text-muted)">系統進程監控 (top / ps / kill 壓力排查)</small></td>
+                <td>Sec 1</td>
+                <td>軟件組件與 Web 服務<br><small style="color:var(--text-muted)">Software Components & Web</small></td>
+                <td>中介軟件、數據庫、服務堆棧</td>
+                <td><strong>Lab 03 實操</strong><br><small style="color:var(--text-muted)">軟件管理：apt (安裝 Nginx 伺服器並修改首頁網頁)</small></td>
                 <td><span class="status-pill status-todo">⚪ 待啟動</span></td>
               </tr>
               <tr>
                 <td><strong>Deck 04</strong></td>
-                <td>Sec 3</td>
-                <td>網絡啟蒙：手機連網第一站<br><small style="color:var(--text-muted)">Network Journey 1: Access</small></td>
-                <td>【數據包之旅·第1站】iPhone 連入 WiFi 與 MAC 身份</td>
-                <td><strong>Lab 05 實操</strong><br><small style="color:var(--text-muted)">查驗網卡 MAC、私網 IP 與 arp 映射表</small></td>
+                <td>Sec 2</td>
+                <td>彈性運算與進程監控<br><small style="color:var(--text-muted)">Elastic Compute & Processes</small></td>
+                <td>搶演唱會門票容災、算力擴展</td>
+                <td><strong>Lab 04 實操</strong><br><small style="color:var(--text-muted)">系統進程管理 (top 負載監控 / ps 進程 / kill)</small></td>
                 <td><span class="status-pill status-todo">⚪ 待啟動</span></td>
               </tr>
               <tr>
                 <td><strong>Deck 05</strong></td>
                 <td>Sec 3</td>
-                <td>數據打包：跨越路由的信使<br><small style="color:var(--text-muted)">Network Journey 2: Routing</small></td>
-                <td>【數據包之旅·第2站】打包快遞與跨海大橋</td>
-                <td><strong>Lab 06 & 07 實操</strong><br><small style="color:var(--text-muted)">網關路由追蹤 (traceroute / ping)</small></td>
+                <td>網絡基礎：IP 與 MAC 地址<br><small style="color:var(--text-muted)">Network Fundamentals: IP & MAC</small></td>
+                <td>【數據包之旅·第1站】手機連 WiFi 與網卡身份</td>
+                <td><strong>Lab 05 實操</strong><br><small style="color:var(--text-muted)">認識 IP 地址以及 MAC 地址 (arp -a / ping 連線)</small></td>
                 <td><span class="status-pill status-todo">⚪ 待啟動</span></td>
               </tr>
               <tr>
                 <td><strong>Deck 06</strong></td>
                 <td>Sec 3</td>
-                <td>雲上網絡與隔離：VPC 建造師<br><small style="color:var(--text-muted)">Network Journey 3: VPC</small></td>
-                <td>【數據包之旅·第3站】雲端帶圍牆的獨棟莊園</td>
-                <td><strong>VPC 雲端實驗</strong><br><small style="color:var(--text-muted)">雲控制台規劃公私子網與網關路由</small></td>
+                <td>互聯網通信協議：IP 配置<br><small style="color:var(--text-muted)">Internet Protocols: IP Config</small></td>
+                <td>【數據包之旅·第2站】網絡掩碼與網關出發</td>
+                <td><strong>Lab 06 實操</strong><br><small style="color:var(--text-muted)">IP 配置 (Netmask / Gateway 網關 / DHCP 組態)</small></td>
                 <td><span class="status-pill status-todo">⚪ 待啟動</span></td>
               </tr>
               <tr>
                 <td><strong>Deck 07</strong></td>
                 <td>Sec 3</td>
-                <td>海量流量引路人：SLB 與網關<br><small style="color:var(--text-muted)">Network Journey 4: SLB</small></td>
-                <td>【數據包之旅·第4站】大廈安保與大堂分流閘機</td>
-                <td><strong>負載均衡實操</strong><br><small style="color:var(--text-muted)">雙伺服器掛載與 SLB 輪詢分流驗證</small></td>
+                <td>雲網絡及網絡管理：路由追蹤<br><small style="color:var(--text-muted)">Cloud Network & Routing</small></td>
+                <td>【數據包之旅·第3站】數據包跨海大橋跳躍</td>
+                <td><strong>Lab 07 實操</strong><br><small style="color:var(--text-muted)">Linux 網絡管理命令 (traceroute 路由追蹤 / ip route)</small></td>
                 <td><span class="status-pill status-todo">⚪ 待啟動</span></td>
               </tr>
               <tr>
                 <td><strong>Deck 08</strong></td>
                 <td>Sec 3</td>
-                <td>極速邊緣：CDN 與全球加速<br><small style="color:var(--text-muted)">Network Journey 5: CDN</small></td>
-                <td>【數據包之旅·第5站】樓下 7-Eleven 前置快取倉</td>
-                <td><strong>網絡延遲對比</strong><br><small style="color:var(--text-muted)">curl / 瀏覽器測量 CDN 節點響應耗時</small></td>
+                <td>訪問及管理服務器：端口監控<br><small style="color:var(--text-muted)">Server Access & Ports</small></td>
+                <td>【數據包之旅·第4站】叩響服務器 80/443 大門</td>
+                <td><strong>Lab 08 實操</strong><br><small style="color:var(--text-muted)">服務器端口監控 (TCP/UDP 端口管理 / netstat 狀態)</small></td>
                 <td><span class="status-pill status-todo">⚪ 待啟動</span></td>
               </tr>
               <tr>
                 <td><strong>Deck 09</strong></td>
+                <td>Sec 3</td>
+                <td>網域名稱系統：DNS 服務與工具<br><small style="color:var(--text-muted)">DNS System & Lookup</small></td>
+                <td>【數據包之旅·第5站】手機如何向全球問路尋址</td>
+                <td><strong>Lab 09 實操</strong><br><small style="color:var(--text-muted)">DNS 服務及工具 (頂級域名階層 / nslookup 解析)</small></td>
+                <td><span class="status-pill status-todo">⚪ 待啟動</span></td>
+              </tr>
+              <tr>
+                <td><strong>Deck 10</strong></td>
+                <td>Sec 4</td>
+                <td>雲儲存與課程綜合實戰<br><small style="color:var(--text-muted)">Cloud Storage & Capstone</small></td>
+                <td>三大存儲類別、相片存哪裡、架構大通關</td>
+                <td><strong>期末綜合實踐</strong><br><small style="color:var(--text-muted)">雲存儲架構設計與全模塊技術棧串聯回顧</small></td>
+                <td><span class="status-pill status-todo">⚪ 待啟動</span></td>
+              </tr>ng></td>
                 <td>Sec 4</td>
                 <td>三大存儲類別深度剖析<br><small style="color:var(--text-muted)">Storage Classes: Block/File/Object</small></td>
                 <td>隨身硬盤 vs 共享網盤 vs 貨運倉庫</td>
