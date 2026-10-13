@@ -1,0 +1,171 @@
+
+    <!DOCTYPE html>
+    <html>
+    <head>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/github-markdown-css/5.5.0/github-markdown.min.css">
+<style>
+    .markdown-body {
+        box-sizing: border-box;
+        min-width: 200px;
+        max-width: 980px;
+        margin: 0 auto;
+        padding: 20px 35px; /* Reduced top/bottom padding */
+        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
+        font-size: 14px;
+    }
+    @media (max-width: 767px) {
+        .markdown-body {
+            padding: 15px;
+        }
+    }
+    h1 { border-bottom: 2px solid #1a1a1a; color: #1a1a1a; padding-bottom: 8px; margin-bottom: 18px; margin-top: 0; }
+    h2 { border-bottom: 1px solid #eaecef; color: #1a1a1a; margin-top: 15px; margin-bottom: 10px; }
+    p { margin-bottom: 10px; line-height: 1.4; }
+    table { width: 100%; border-collapse: collapse; margin-bottom: 18px; }
+    th { background-color: #f6f8fa; border: 1px solid #dfe2e5; padding: 10px; text-align: left; }
+    td { border: 1px solid #dfe2e5; padding: 8px; }
+    img { max-width: 45%; max-height: 180px; height: auto; display: block; margin: 10px auto; border: 1px solid #e1e4e8; border-radius: 6px; box-shadow: 0 2px 6px rgba(0,0,0,0.06); }
+    code { white-space: pre-wrap !important; word-break: break-all !important; }
+    pre { white-space: pre-wrap !important; }
+    .mermaid { margin: 20px 0; background: #fff; padding: 12px; border: 1px solid #eee; border-radius: 4px; }
+    .page-break { page-break-before: always; break-before: page; clear: both; height: 1px; width: 100%; visibility: hidden; margin: 0; padding: 0; }
+</style>
+<script type="module">
+    import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.esm.min.mjs';
+    mermaid.initialize({ 
+        startOnLoad: true, 
+        theme: 'neutral',
+        securityLevel: 'loose'
+    });
+</script>
+</head>
+    <body class="markdown-body">
+        <h1>🚀 SEED Cloud Computing Level 2 重構提案與會議決策手冊 (明日下午研討會專用)</h1>
+<blockquote>
+<p><strong>會議目標</strong>：為明天下午的課件重構決策會議提供戰略決策依據。本提案深度融合管理層最新輸入的《ICT vs CC》官方反饋、老闆剛剛下發的兩份核心綱領《AI Enhancements for Cloud Course vJul2026.docx》與《AI enhancements ideas MASTER Jul 2026.docx》，並針對香港中學 15~18 歲學生的真實硬體、雲端資源與合規痛點提出開箱即用的落地架構方案。</p>
+</blockquote>
+<hr>
+<h2>🏛️ 一、 核心輸入與三大戰略軸線</h2>
+<h3>軸線 1：【Incorporate HKDSE ICT】對標香港中學考試體系</h3>
+<ul>
+<li><strong>管理層核心輸入</strong>：《ICT vs CC.pdf》（已歸檔至 <code>Supporting_Materials_from_Wanda/</code>）<ul>
+<li><strong>香港教育局 (EDB) 官員真實反饋</strong>：<em>“Schools will buy SEED courses more if the latter can fit school courses better.”</em>（如果能更好吻合中學課程，學校採購意願將大幅提高）。</li>
+<li><strong>關鍵作戰點</strong>：<ul>
+<li><strong>Part B (電腦系統基礎)</strong>：增補硬件指令週期 (Fetch-Decode-Execute)、寄存器、總線等 MC 必考點。</li>
+<li><strong>Part C (互聯網與安全)</strong>：強化加解密 (PKI/SSL)、網絡攻擊 (DoS/Phishing)、惡意軟件與 UI 網頁設計等 DSE 大熱考點。</li>
+<li><strong>Part A (數據庫)</strong>：強化 SQL 聚合查詢與連接 (Joins) 實操。</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<hr>
+<h3>軸線 2：【Incorporate AI】老闆核心綱領與 Level 2 精準定位</h3>
+<p>根據老闆下發的《AI Enhancements for Cloud Course vJul2026》與《AI enhancements ideas MASTER》，課程對 AI 劃分了三層嚴密體系，我們負責的 <strong>Level 2 (Beginner)</strong> 官方定位是：
+👉 <strong>【AI-Assisted Cloud Operator】（AI 輔助雲端運維與操作者）</strong></p>
+<table>
+<thead>
+<tr>
+<th align="left">老闆規劃之四大模塊</th>
+<th align="left">具體教學任務</th>
+<th align="left">採用工具 (Tools)</th>
+<th align="left">核心學習價值</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left"><strong>1. AI CLI Helper</strong><br><em>(終端命令智能輔助)</em></td>
+<td align="left">學生使用 AI 解釋複雜 Linux、SSH、Nginx、Git、curl 命令及各種報錯日誌 (Error Logs)。</td>
+<td align="left"><strong>Microsoft Copilot web</strong></td>
+<td align="left">消除 15~18 歲中學生對黑底命令行終端的恐懼感，快速讀懂報錯。</td>
+</tr>
+<tr>
+<td align="left"><strong>2. AI API Integration</strong><br><em>(AI 接口雲端調用)</em></td>
+<td align="left">學生在 Web 前端透過簡單 JavaScript 調用後台的 AI 端點 (Endpoint)。</td>
+<td align="left"><strong>Cloudflare Workers AI</strong><br><em>(老師/SEED 託管端點)</em></td>
+<td align="left">讓學生認知：<strong>AI 不僅是聊天框，更是雲端標準的 API 服務！</strong></td>
+</tr>
+<tr>
+<td align="left"><strong>3. AI Processing Workflow</strong><br><em>(數據流動處理)</em></td>
+<td align="left">構建全鏈路：輸入數據 ➔ 雲端 AI 處理 ➔ 保存結果。</td>
+<td align="left"><strong>Cloudflare Workers + Workers AI + D1/KV</strong></td>
+<td align="left">將雲端算力、數據存儲與 AI 串聯為完整工程流。</td>
+</tr>
+<tr>
+<td align="left"><strong>4. Responsible AI Use</strong><br><em>(負責任的 AI 安全)</em></td>
+<td align="left">學習隱私保護、成本限制 (Cost Limits)、存取權限控制，以及主動核驗 AI 生成內容。</td>
+<td align="left"><strong>Cloudflare Dashboard / Logs + Copilot</strong></td>
+<td align="left">樹立負責任的雲架構與 AI 使用習慣。</td>
+</tr>
+</tbody></table>
+<hr>
+<h2>💡 二、 落地痛點攻堅方案：資源與 IDE 解決之道 (完全落實老闆方案)</h2>
+<p>針對 Wanda 與教研團隊提出的兩大核心顧慮，結合老闆文檔中的明確指示，我們在明天會議上給出<strong>無懈可擊的落地對策</strong>：</p>
+<h3>痛點 A：雲端與 AI 資源貧瘠（香港無信用卡、AI 服務受限）</h3>
+<blockquote>
+<p><strong>Wanda 的顧慮</strong>：學生沒有國際信用卡，無法註冊 AWS/GCP；主流商業 AI 在香港有地區限制或學校網絡限制。</p>
+</blockquote>
+<h4>🛠️ 老闆文檔敲定的破局對策 (Zero-Cost &amp; Safe-Failure Architecture)：</h4>
+<ol>
+<li><strong>Cloudflare 老師/SEED 託管架構 (解決年齡與信用卡限制)</strong>：<ul>
+<li><strong>老闆文檔明確指出</strong>：<em>“Cloudflare accounts cannot belong to students (age restriction). The teacher&#39;s Worker endpoint must send CORS headers, so students can call it.”</em></li>
+<li><strong>免信用卡與零超額扣費</strong>：<ul>
+<li>Cloudflare Workers 每天 <strong>10 萬次免費請求</strong>；</li>
+<li>Workers AI 每天 <strong>10,000 Neurons 免費額度</strong>；</li>
+<li><strong>安全失敗模式 (Safe Failure Mode)</strong>：<em>“Never attach a payment method to the accounts. Exceeding limits produces errors, not billing!”</em> 帳號不綁卡，超額只會報錯，<strong>絕無財務扣費風險</strong>！</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><strong>Microsoft Copilot Web (香港學校合法合規)</strong>：<ul>
+<li>香港大部分中學已有微軟教育生態，<code>copilot.microsoft.com</code> 在中學校園網絡完全暢通，免翻牆、免付費。</li>
+</ul>
+</li>
+<li><strong>QF2 評核安全紅線（原版實驗 100% 兼容）</strong>：<ul>
+<li>老板在文档中给出绝妙方案：<em>“Add an &#39;AI use&#39; line to existing lab sheets (prompt used + how output was verified) — keeps the 60/40 assessment intact!”</em></li>
+<li><strong>在现有的实验纸上只加一行“你使用的 AI 提示词是什么 + 你是如何核实输出正确性的”</strong>，直接保全港大進修學院 QF2 60/40 考核標准，不推翻現有實驗！</li>
+</ul>
+</li>
+</ol>
+<hr>
+<h3>痛點 B：學校硬體門檻（無電腦、僅 iPad/Chromebook、機房無安裝權限）</h3>
+<blockquote>
+<p><strong>香港現狀</strong>：香港中學普及 BYOD（學生自帶 iPad 或 Chromebook），即便在電腦室，機房也有嚴格的權限鎖，<strong>學生根本無法下載安裝本地 IDE</strong>！</p>
+</blockquote>
+<h4>🛠️ 老闆文檔敲定的純瀏覽器 (Browser-Based) 免安裝工作流：</h4>
+<ol>
+<li><strong>在線 Web IDE：JSFiddle / CodePen / GitHub Codespaces</strong>：<ul>
+<li>老闆文檔指定：<strong>JSFiddle (<code>jsfiddle.net</code>)</strong> 或 <strong>CodePen</strong> 作為在線編程沙箱；</li>
+<li>任何 iPad、Chromebook 的 Safari/Chrome 點開即用，無需註冊或安裝；</li>
+<li><strong>課堂四步工作法</strong>：<em>“enforce a &#39;predict → paste → test → explain&#39; routine”</em>（先預測結果 ➔ 粘貼代碼 ➔ 測試運行 ➔ 學生解釋原理）。</li>
+</ul>
+</li>
+<li><strong>學校 IT 白名單極簡清單 (提前提供給學校網管)</strong>：<ul>
+<li><code>copilot.microsoft.com</code></li>
+<li><code>teachablemachine.withgoogle.com</code></li>
+<li><code>jsfiddle.net</code></li>
+<li><code>dash.cloudflare.com</code></li>
+</ul>
+</li>
+</ol>
+<hr>
+<h2>🎯 三、 明天下午會議的 3 個核心發言亮點與決策點</h2>
+<ol>
+<li><strong>發言亮點 1：我們已經完全吃透老闆的 Level 2 定位</strong>：<ul>
+<li>我們的 Level 2 不是浮躁地教學生調包訓練模型，而是做 <strong>“AI-assisted cloud operator”</strong>：用 Copilot 輔助讀懂 Linux 終端與 Nginx 報錯，用 JS 调用 Cloudflare AI 端點。</li>
+</ul>
+</li>
+<li><strong>發言亮點 2：資源與硬體痛點已全部化解</strong>：<ul>
+<li>學校沒電腦用 <strong>JSFiddle / GitHub Codespaces</strong>；</li>
+<li>學生無信用卡用 <strong>SEED 託管 Cloudflare Workers AI + Copilot Web</strong>；</li>
+<li>考核不變動，只需在實驗紙加一行 <strong>“AI Prompt + Verification”</strong>。</li>
+</ul>
+</li>
+<li><strong>發言亮點 3：首發樣板 Deck 01 (Section 1) 隨時可交付</strong>：<ul>
+<li>融合“自來水管/屋頂水箱”生動比喻 + 鮮艷動感版式 + Copilot 終端助手卡片，會後立即輸出第 1 份成品供管理層驗收。</li>
+</ul>
+</li>
+</ol>
+
+    </body>
+    </html>
+    
